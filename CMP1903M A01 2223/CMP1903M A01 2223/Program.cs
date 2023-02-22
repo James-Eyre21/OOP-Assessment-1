@@ -14,6 +14,8 @@ namespace CMP1903M_A01_2223
             string name = Console.ReadLine();
 
             Console.WriteLine($"Users name is {name}");
+
+            Console.ReadKey();
         }
     }
 }
