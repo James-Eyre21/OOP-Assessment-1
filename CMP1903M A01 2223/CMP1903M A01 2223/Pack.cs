@@ -8,16 +8,27 @@ namespace CMP1903M_A01_2223
 {
     class Pack
     {
-        List<Card> pack;
-
         public Pack()
         {
             //Initialise the card pack here
+            List<Card> pack = new List<Card>();
+
+            for (int s = 1; s < 5; s++)
+            {
+                for (int v = 1; v < 14; v++)
+                {
+                    Card card = new Card();
+                    card.Suit = s;
+                    card.Value = v;
+                    pack.Add(card);
+                }
+            }
         }
 
-        public static bool shuffleCardPack(int typeOfShuffle)
+        public bool shuffleCardPack(int typeOfShuffle)
         {
             //Shuffles the pack based on the type of shuffle
+            
             return false;
 
         }
