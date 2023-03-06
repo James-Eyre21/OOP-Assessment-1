@@ -16,7 +16,6 @@ namespace CMP1903M_A01_2223
             TestPacks(pack, rangeCheck.RangeCheck(2, 1, 3)); //Test for pack using Riffle shuffle
             TestPacks(pack, rangeCheck.RangeCheck(1, 1, 3)); //Test for pack using Fisher-yates shuffle
             
-
             Console.ReadKey();
         }
 
