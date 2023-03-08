@@ -9,9 +9,10 @@ namespace CMP1903M_A01_2223
 {
     class Pack
     {
-        public static List<Card> pack = new List<Card>();
+        List<Card> pack;
         public Pack()
         {
+            pack = new List<Card>();
             //A nested for loop to add 13 cards for each suit to the pack
             for (int s = 1; s < 5; s++)
             {
@@ -40,7 +41,7 @@ namespace CMP1903M_A01_2223
                     shuffledPack.Add(pack[rndNum]); //Adds the card to a new list
                     pack.RemoveAt(rndNum); //Removes the card from its previous position
                 }
-                pack = shuffledPack; //Sets the value of 'pack' to be the same as the shuffled set of cards. So the shuffled pack cna be accessed elsewhere
+                pack = shuffledPack; //Sets the value of 'pack' to be the same as the shuffled set of cards. So the shuffled pack can be accessed elsewhere
                 return true;
             }
 
@@ -73,18 +74,13 @@ namespace CMP1903M_A01_2223
             }
 
             //No shuffle
-            else if (typeOfShuffle == 3)
-            {
-                return false;
-            }
-
             else
             {
                 return false;
             }
 
         }
-        public static Card dealCard()
+        public Card dealCard()
         {
             //Deals one card
             Card card = pack[0]; //Deals the top card of the pack - simulates how cards are dealt in real life
@@ -92,7 +88,7 @@ namespace CMP1903M_A01_2223
             return card;
 
         }
-        public static List<Card> dealCard(int amount)
+        public List<Card> dealCard(int amount)
         {
             //Deals the number of cards specified by 'amount'
 
