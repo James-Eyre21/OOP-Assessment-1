@@ -9,27 +9,13 @@ namespace CMP1903M_A01_2223
     //Test class added to show all functionality of the program - Shuffling a pack, dealing one card, dealing multiple cards
     class Testing
     {
-
+        static Pack pack = new Pack();
         //Method to test functionality of program - Shuffling, dealing
         public static void TestPacks()
         {
-            Console.WriteLine("Fisher-Yates shuffle:");
-            Console.WriteLine("---------------------------------------\n");
-            Pack pack = new Pack();
-            pack.shuffleCardPack(1); //Calls shuffleCardPack with paramter 1, representing the Fisher-Yates shuffle
-            DisplayCards(pack);
-
-            Console.WriteLine("Riffle shuffle:");
-            Console.WriteLine("---------------------------------------\n");
-            pack = new Pack(); //Creates a new, fresh pack to show the shuffle from a default deck
-            pack.shuffleCardPack(2); //Calls shuffleCardPack with paramter 2, representing the Riffle shuffle
-            DisplayCards(pack);
-
-            Console.WriteLine("No shuffle:");
-            Console.WriteLine("---------------------------------------\n");
-            pack = new Pack(); //Creates a new, fresh pack so it won't be shuffled
-            pack.shuffleCardPack(3); //Calls shuffleCardPack with paramter 3, representing No shuffle
-            DisplayCards(pack);
+            ShuffleCards(1); //Calls the ShuffleCards method with the paramater of 1 - conducts a Fisher-Yates shuffle
+            ShuffleCards(2); //2 = Riffle shuffle
+            ShuffleCards(3); //3 = No shuffle
         }
 
         //Method to display both a single card and all cards in a pack
@@ -46,5 +32,29 @@ namespace CMP1903M_A01_2223
             Console.WriteLine("---------------------------------------\n");
         }
         
+        //Method to display what is happening to the user and then shuffle the cards
+        private static void ShuffleCards(int shuffleType)
+        {
+            string shuffleName;
+            //This if statement takes the shuffleType variable to determine the name of the shuffle so it can be printed to the user
+            if (shuffleType == 1)
+            {
+                shuffleName = "Fisher-Yates Shuffle";
+            }
+            else if (shuffleType == 2)
+            {
+                shuffleName = "Riffle Shuffle";
+            }
+            else
+            {
+                shuffleName = "No Shuffle";
+            }
+
+            Console.WriteLine(shuffleName);
+            Console.WriteLine("---------------------------------------\n");
+            pack = new Pack(); //Creates a new, fresh pack so it won't be shuffled
+            pack.shuffleCardPack(shuffleType); //Calls shuffleCardPack with whichever shuffeType was passed
+            DisplayCards(pack);
+        }
     }
 }
